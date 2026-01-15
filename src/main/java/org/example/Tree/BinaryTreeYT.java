@@ -275,6 +275,32 @@ public class BinaryTreeYT {
             System.out.print(i+" ");
         }
     }
+    // USING LAST VISTED
+    public static void lastVistedmethod(Node root){
+        List<Integer> ls = new ArrayList<>();
+        if (root == null){
+            return;
+        }
+        Stack<Node> st = new Stack<>();
+        Node lastvisted = null;
+        while (!st.isEmpty() || root != null){
+            if (root != null){
+                st.push(root);
+                root = root.left;
+            }else {
+                Node peekNode = st.peek();
+                if (peekNode.right != null && lastvisted != peekNode.right){
+                    root = peekNode.right;
+                }else {
+                    ls.add(peekNode.data);
+                    lastvisted = st.pop();
+                }
+            }
+        }
+        for (int i : ls){
+            System.out.print(i+" ");
+        }
+    }
 
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
@@ -322,5 +348,8 @@ public class BinaryTreeYT {
         System.out.println();
         System.out.print("Postorder traversal is : ");
         postOrder1Stack(root);
+        System.out.println();
+        System.out.print("Postorder traversal is : ");
+        lastVistedmethod(root);
     }
 }
