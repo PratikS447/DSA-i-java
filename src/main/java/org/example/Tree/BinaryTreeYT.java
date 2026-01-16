@@ -302,6 +302,16 @@ public class BinaryTreeYT {
         }
     }
 
+    public static boolean Balanced_Binary_Tree(Node root){
+        if (root == null){
+            return true;
+        }
+        int heightLeft = height(root.left);
+        int heightRight = height(root.right);
+
+        return Math.abs(heightLeft - heightRight) <= 1 && Balanced_Binary_Tree(root.left)
+                && Balanced_Binary_Tree(root.right);
+    }
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -351,5 +361,8 @@ public class BinaryTreeYT {
         System.out.println();
         System.out.print("Postorder traversal is : ");
         lastVistedmethod(root);
+        System.out.println();
+        boolean balancedornot = Balanced_Binary_Tree(subroot);
+        System.out.print("Is Balanced or not : "+balancedornot);
     }
 }
