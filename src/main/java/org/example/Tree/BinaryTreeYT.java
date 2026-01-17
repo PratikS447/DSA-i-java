@@ -301,7 +301,7 @@ public class BinaryTreeYT {
             System.out.print(i+" ");
         }
     }
-
+    // CHECK FOR BALANCED BINARY TREE.
     public static boolean Balanced_Binary_Tree(Node root){
         if (root == null){
             return true;
@@ -312,6 +312,52 @@ public class BinaryTreeYT {
         return Math.abs(heightLeft - heightRight) <= 1 && Balanced_Binary_Tree(root.left)
                 && Balanced_Binary_Tree(root.right);
     }
+    // BOUNDARY TRAVERSAL OF BINARY TREE.
+    public static void leftBoundary(Node root, List<Integer> res){
+        Node curr = root;
+        while (curr != null){
+            if (!isLeaf(curr)) res.add(curr.data);
+            if (curr.left != null) curr = curr.left;
+            else curr = curr.right;
+        }
+    }
+    public static void rightBoundary(Node root, List<Integer> res){
+        Node curr = root;
+        List<Integer> ls = new ArrayList<>();
+        while (curr != null){
+            if (!isLeaf(curr)) ls.add(curr.data);
+            if (curr.right != null) curr = curr.right;
+            else curr = curr.left;
+        }
+        for (int i = ls.size()-1; i >= 0; --i){
+            res.add(ls.get(i));
+        }
+    }
+
+    public static void addLeaf(Node root, List<Integer> res){
+        if (isLeaf(root)) {
+            res.add(root.data);
+            return;
+        }
+        if(root.left != null) addLeaf(root.left, res);
+        if (root.right != null) addLeaf(root.right, res);
+    }
+    public static boolean isLeaf(Node root){
+        if (root == null){
+            return false;
+        }
+        return root.left == null && root.right == null;
+    }
+    public static List<Integer> boundaryTraversal(Node root){
+        List<Integer> ls = new ArrayList<>();
+        if (!isLeaf(root)) ls.add(root.data);
+        leftBoundary(root.left, ls);
+        addLeaf(root, ls);
+        rightBoundary(root.right, ls);
+
+        return ls;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -364,5 +410,8 @@ public class BinaryTreeYT {
         System.out.println();
         boolean balancedornot = Balanced_Binary_Tree(subroot);
         System.out.print("Is Balanced or not : "+balancedornot);
+        System.out.println();
+        List<Integer> ls = boundaryTraversal(root);
+        System.out.print("Boundary traversal : "+ls);
     }
 }
