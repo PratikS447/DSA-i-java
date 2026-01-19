@@ -358,6 +358,24 @@ public class BinaryTreeYT {
         return ls;
     }
 
+    // BINARY TREE MAXIMUM PATH SUM
+    static int max = 0;
+    public static int maxPathSum(Node root){
+        maximumSum(root);
+        return max;
+    }
+
+    public static int maximumSum(Node root){
+        if (root == null){
+            return 0;
+        }
+        int left = Math.max(0, maximumSum(root.left));
+        int right = Math.max(0, maximumSum(root.right));
+        max = Math.max(max, left+right+root.data);
+
+        return Math.max(left, right) + root.data;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -413,5 +431,7 @@ public class BinaryTreeYT {
         System.out.println();
         List<Integer> ls = boundaryTraversal(root);
         System.out.print("Boundary traversal : "+ls);
+        System.out.println();
+        System.out.print("Binary Tree Maximum Path Sum : "+maxPathSum(root));
     }
 }
