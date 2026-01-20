@@ -414,6 +414,41 @@ public class BinaryTreeYT {
         return ans;
     }
 
+    // TOP VIEW
+    public static void leftTraversal(Node root, List<Integer> res){
+        if (root == null){
+            return;
+        }
+        while (root != null){
+            res.add(root.data);
+            root = root.left;
+        }
+        Collections.reverse(res);
+    }
+
+    public static void rightTraversal(Node root, List<Integer> res){
+        if (root == null){
+            return;
+        }
+        while (root != null){
+            res.add(root.data);
+            root = root.right;
+        }
+    }
+
+    public static List<Integer> topView(Node root) {
+        //your code goes here
+        if(root == null){
+            return new ArrayList<>();
+        }
+        List<Integer> ans = new ArrayList<>();
+        ans.add(root.data);
+        leftTraversal(root.left, ans);
+        rightTraversal(root.right, ans);
+
+        return ans;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -473,5 +508,7 @@ public class BinaryTreeYT {
         System.out.print("Binary Tree Maximum Path Sum : "+maxPathSum(root));
         System.out.println();
         System.out.println("Zig-Zag traversal : "+zig_zag(root));
+        System.out.println();
+        System.out.println("Top-view : "+topView(root));
     }
 }
