@@ -2,6 +2,7 @@ package org.example.Tree;
 
 
 import com.sun.source.tree.Tree;
+import org.w3c.dom.ls.LSInput;
 
 import java.util.*;
 
@@ -376,6 +377,43 @@ public class BinaryTreeYT {
         return Math.max(left, right) + root.data;
     }
 
+    // ZIG-ZAG TRAVERSAL OF TREE
+    public static List<List<Integer>> zig_zag(Node root){
+        if (root == null){
+            return new ArrayList<>();
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> ls = new ArrayList<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+        boolean flag = true;
+        while (!q.isEmpty()){
+            Node curr = q.poll();
+            if (curr == null){
+                if (flag){
+                    ans.add(ls);
+                }else {
+                    Collections.reverse(ls);
+                    ans.add(ls);
+                }
+                if (q.isEmpty()) break;
+                ls = new ArrayList<>();
+                q.add(null);
+                flag = !flag;
+            }else {
+                ls.add(curr.data);
+                if (curr.left != null){
+                    q.add(curr.left);
+                }
+                if (curr.right != null){
+                    q.add(curr.right);
+                }
+            }
+        }
+        return ans;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -433,5 +471,7 @@ public class BinaryTreeYT {
         System.out.print("Boundary traversal : "+ls);
         System.out.println();
         System.out.print("Binary Tree Maximum Path Sum : "+maxPathSum(root));
+        System.out.println();
+        System.out.println("Zig-Zag traversal : "+zig_zag(root));
     }
 }
