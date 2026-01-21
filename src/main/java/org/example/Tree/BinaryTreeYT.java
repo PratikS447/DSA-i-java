@@ -449,6 +449,53 @@ public class BinaryTreeYT {
         return ans;
     }
 
+    // VERTICAL ORDER TRAVERSAL
+    static class Triple{
+        Node node;
+        int hd;
+        int row;
+        Triple(Node node, int hd, int row){
+            this.node = node;
+            this.hd = hd;
+            this.row = row;
+        }
+    }
+
+    public static List<List<Integer>> verticalTraversal(Node root){
+        TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
+        Queue<Triple> q = new LinkedList<>();
+        q.add(new Triple(root, 0, 0));
+        while (!q.isEmpty()){
+            Triple curr = q.poll();
+            Node node = curr.node;
+            int hd = curr.hd;
+            int row = curr.row;
+
+            map.putIfAbsent(hd, new TreeMap<>());
+            map.get(hd).putIfAbsent(row, new PriorityQueue<>());
+            map.get(hd).get(row).add(node.data);
+
+            if (node.left != null){
+                q.add(new Triple(node.left, hd-1, row+1));
+            }
+            if (node.right != null){
+                q.add(new Triple(node.right, hd+1, row+1));
+            }
+        }
+
+        List<List<Integer>> res = new ArrayList<>();
+        for (TreeMap<Integer, PriorityQueue<Integer>> columns: map.values()){
+            List<Integer> currCol = new ArrayList<>();
+            for (PriorityQueue<Integer> nodesAtSameSpot: columns.values()){
+                while (!nodesAtSameSpot.isEmpty()){
+                    currCol.add(nodesAtSameSpot.poll());
+                }
+            }
+            res.add(currCol);
+        }
+        return res;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -508,7 +555,7 @@ public class BinaryTreeYT {
         System.out.print("Binary Tree Maximum Path Sum : "+maxPathSum(root));
         System.out.println();
         System.out.println("Zig-Zag traversal : "+zig_zag(root));
-        System.out.println();
         System.out.println("Top-view : "+topView(root));
+        System.out.println("Vertical traversal : "+verticalTraversal(root));
     }
 }
