@@ -577,6 +577,30 @@ public class BinaryTreeYT {
         }
     }
 
+    // SYMMETRIC TREE
+    public static boolean isSymmetric(Node root){
+        if (root == null){
+            return true;
+        }
+        return isMirror(root.left, root.right);
+    }
+    public static boolean isMirror(Node root, Node root2){
+
+        if(root.left == null && root2.right == null){
+            return true;
+        }
+
+        if (root.left == null || root2.right == null){
+            return false;
+        }
+
+        if(root.data != root2.data){
+            return false;
+        }
+
+        return isMirror(root.left, root2.right) && isMirror(root.right, root2.left);
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -641,5 +665,10 @@ public class BinaryTreeYT {
         System.out.println("Bottom View : "+bottomView(root));
         System.out.println("Right View : "+rightView(root));
         System.out.println("Binary tree path : "+binaryTreePath(root));
+        int arr2[] = {2, 3, -1, -1, 4, -1, -1};
+        BuildTree obj3 = new BuildTree();
+        obj3.idx = -1;
+        Node symmetric = obj3.tree(arr2);
+        System.out.println("Is symmetric : "+isSymmetric(symmetric));
     }
 }
