@@ -496,6 +496,44 @@ public class BinaryTreeYT {
         return res;
     }
 
+    // BOTTOM VIEW
+    static class Pair{
+        Node node;
+        int hd;
+        Pair(Node node, int hd){
+            this.node = node;
+            this.hd = hd;
+        }
+    }
+
+    public static List<Integer> bottomView(Node root){
+        if (root == null){
+            return new ArrayList<>();
+        }
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(root, 0));
+        Map<Integer, Integer> mp = new TreeMap<>();
+        while(!q.isEmpty()){
+            Pair curr = q.poll();
+            Node node = curr.node;
+            int hd = curr.hd;
+            mp.put(hd, node.data);
+
+            if (node.left != null){
+                q.add(new Pair(node.left, hd-1));
+            }
+
+            if (node.right != null){
+                q.add(new Pair(node.right, hd+1));
+            }
+        }
+        List<Integer> ls = new ArrayList<>();
+        for (int map: mp.values()){
+            ls.add(map);
+        }
+        return ls;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -557,5 +595,6 @@ public class BinaryTreeYT {
         System.out.println("Zig-Zag traversal : "+zig_zag(root));
         System.out.println("Top-view : "+topView(root));
         System.out.println("Vertical traversal : "+verticalTraversal(root));
+        System.out.println("Bottom View : "+bottomView(root));
     }
 }
