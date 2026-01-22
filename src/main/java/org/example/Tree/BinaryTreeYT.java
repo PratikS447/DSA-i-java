@@ -534,6 +534,29 @@ public class BinaryTreeYT {
         return ls;
     }
 
+    // RIGHT VIEW
+    public static List<Integer> rightView(Node root){
+        List<Integer> ls = new ArrayList<>();
+        rightTraver(root, 0, ls);
+        return ls;
+    }
+
+    public static void rightTraver(Node root, int row, List<Integer> ls){
+        if (root == null){
+            return;
+        }
+        if(row == ls.size()){
+            ls.add(root.data);
+        }
+
+
+        rightTraver(root.right, row+1, ls);
+        rightTraver(root.left, row+1, ls);
+
+    }
+
+
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -596,5 +619,6 @@ public class BinaryTreeYT {
         System.out.println("Top-view : "+topView(root));
         System.out.println("Vertical traversal : "+verticalTraversal(root));
         System.out.println("Bottom View : "+bottomView(root));
+        System.out.println("Right View : "+rightView(root));
     }
 }
