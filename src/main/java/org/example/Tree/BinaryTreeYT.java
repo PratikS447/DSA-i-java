@@ -555,7 +555,27 @@ public class BinaryTreeYT {
 
     }
 
+    // BINARY TREE PATH
+    public static List<String> binaryTreePath(Node root){
+        List<String> ls = new ArrayList<>();
+        path(root, ls, "");
+        return ls;
+    }
 
+    public static void path(Node root, List<String> ls, String str){
+        str += root.data;
+
+        if(root.right == null && root.left == null){
+            ls.add(str);
+        }
+
+        if (root.left != null){
+            path(root.left, ls, str+"->");
+        }
+        if (root.right != null){
+            path(root.right, ls, str+"->");
+        }
+    }
 
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
@@ -620,5 +640,6 @@ public class BinaryTreeYT {
         System.out.println("Vertical traversal : "+verticalTraversal(root));
         System.out.println("Bottom View : "+bottomView(root));
         System.out.println("Right View : "+rightView(root));
+        System.out.println("Binary tree path : "+binaryTreePath(root));
     }
 }
