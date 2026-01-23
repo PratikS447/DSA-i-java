@@ -1,6 +1,7 @@
 package org.example.Tree;
 
 
+import com.sun.source.tree.ArrayAccessTree;
 import com.sun.source.tree.Tree;
 import org.w3c.dom.ls.LSInput;
 
@@ -555,7 +556,7 @@ public class BinaryTreeYT {
 
     }
 
-    // BINARY TREE PATH
+    // BINARY TREE PATH USING STRING
     public static List<String> binaryTreePath(Node root){
         List<String> ls = new ArrayList<>();
         path(root, ls, "");
@@ -575,6 +576,33 @@ public class BinaryTreeYT {
         if (root.right != null){
             path(root.right, ls, str+"->");
         }
+    }
+    // BINARY TREE PATH USING STRING
+    public static ArrayList<ArrayList<Integer>> binaryTreePath1(Node root){
+        if (root == null){
+            return new ArrayList<>();
+        }
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        ArrayList<Integer> ls = new ArrayList<>();
+        path1(root, ans, ls);
+        return ans;
+    }
+
+    public static void path1(Node root, ArrayList<ArrayList<Integer>> ans,
+                                           ArrayList<Integer> ls){
+        ls.add(root.data);
+        if(root.left == null && root.right == null){
+            ans.add(new ArrayList<>(ls));
+        }
+
+        if (root.left != null){
+            path1(root.left, ans, ls);
+        }
+        if (root.right != null){
+            path1(root.right, ans, ls);
+        }
+
+        ls.remove(ls.size() -1);
     }
 
     // SYMMETRIC TREE
@@ -670,5 +698,6 @@ public class BinaryTreeYT {
         obj3.idx = -1;
         Node symmetric = obj3.tree(arr2);
         System.out.println("Is symmetric : "+isSymmetric(symmetric));
+        System.out.println("Binary tree path 2 : "+binaryTreePath1(root));
     }
 }
