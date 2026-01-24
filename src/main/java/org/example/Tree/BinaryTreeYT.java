@@ -577,7 +577,7 @@ public class BinaryTreeYT {
             path(root.right, ls, str+"->");
         }
     }
-    // BINARY TREE PATH USING STRING
+    // BINARY TREE PATH USING ARRAYLIST
     public static ArrayList<ArrayList<Integer>> binaryTreePath1(Node root){
         if (root == null){
             return new ArrayList<>();
