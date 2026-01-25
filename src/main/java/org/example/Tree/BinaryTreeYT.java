@@ -629,6 +629,25 @@ public class BinaryTreeYT {
         return isMirror(root.left, root2.right) && isMirror(root.right, root2.left);
     }
 
+    //LOWEST COMMON ANCESTOR
+    public static Node lowestCommonAncestor(Node root, int p, int q){
+        if (root == null || p == root.data || q == root.data){
+            return root;
+        }
+
+        Node left = lowestCommonAncestor(root.left, p, q);
+        Node right = lowestCommonAncestor(root.right, p, q);
+
+        if (left == null){
+            return right;
+        }
+        if (right == null){
+            return left;
+        }
+
+        return root;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -699,5 +718,6 @@ public class BinaryTreeYT {
         Node symmetric = obj3.tree(arr2);
         System.out.println("Is symmetric : "+isSymmetric(symmetric));
         System.out.println("Binary tree path 2 : "+binaryTreePath1(root));
+        System.out.println("Lowest Common Ancestor : "+lowestCommonAncestor(root, 50, 90).data);
     }
 }
