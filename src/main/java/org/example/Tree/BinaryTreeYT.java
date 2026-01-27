@@ -691,6 +691,18 @@ public class BinaryTreeYT {
         return maxWidth;
     }
 
+    public static boolean isSumProperty(Node root){
+        if(root == null || (root.left == null && root.right == null)){
+            return true;
+        }
+
+        int sum = 0;
+        if(root.left != null) sum += root.left.data;
+        if(root.right != null) sum += root.right.data;
+
+        return sum == root.data && isSumProperty(root.left) && isSumProperty(root.right);
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -763,5 +775,6 @@ public class BinaryTreeYT {
         System.out.println("Binary tree path 2 : "+binaryTreePath1(root));
         System.out.println("Lowest Common Ancestor : "+lowestCommonAncestor(root, 50, 90).data);
         System.out.println("Maximum Width of Binary Tree : "+widthOfBinaryTree(root));
+        System.out.println("Childer sum in a binary tree : "+isSumProperty(root));
     }
 }
