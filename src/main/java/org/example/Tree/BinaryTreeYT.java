@@ -648,6 +648,49 @@ public class BinaryTreeYT {
         return root;
     }
 
+    // MAXIMUM WIDTH OF BINARY TREE
+    static class Pair1{
+        Node node;
+        int idx;
+        Pair1(Node node, int idx){
+            this.node = node;
+            this.idx = idx;
+        }
+    }
+
+    public static int widthOfBinaryTree(Node root){
+        if (root == null){
+            return 0;
+        }
+        Queue<Pair1> queue = new LinkedList<>();
+        queue.add(new Pair1(root, 0));
+        int maxWidth = 0;
+
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            int minLevel = queue.peek().idx;
+            int first = 0, last = 0;
+            for (int i = 0; i < size; i++){
+                Pair1 curr = queue.poll();
+                Node node = curr.node;
+                int currIdx = curr.idx - minLevel;
+
+                if (i == 0) first = currIdx;
+                if (i == size -1) last = currIdx;
+
+                if (node.left != null){
+                    queue.add(new Pair1(node.left, currIdx*2));
+                }
+
+                if (node.right != null){
+                    queue.add(new Pair1(node.right, currIdx*2+1));
+                }
+            }
+            maxWidth = Math.max(maxWidth, last-first+1);
+        }
+        return maxWidth;
+    }
+
     public static void main(String args[]){
         int arr[] = {45,15,10, -1, 12, -1, -1, 20, -1, -1, 79, 55, 50, -1, -1, -1, 90, -1, -1};
         BuildTree obj1 = new BuildTree();
@@ -719,5 +762,6 @@ public class BinaryTreeYT {
         System.out.println("Is symmetric : "+isSymmetric(symmetric));
         System.out.println("Binary tree path 2 : "+binaryTreePath1(root));
         System.out.println("Lowest Common Ancestor : "+lowestCommonAncestor(root, 50, 90).data);
+        System.out.println("Maximum Width of Binary Tree : "+widthOfBinaryTree(root));
     }
 }
