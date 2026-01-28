@@ -691,6 +691,9 @@ public class BinaryTreeYT {
         return maxWidth;
     }
 
+
+//    ROOT EQUALS SUM OF CHILDREN
+
     public static boolean isSumProperty(Node root){
         if(root == null || (root.left == null && root.right == null)){
             return true;
@@ -701,6 +704,65 @@ public class BinaryTreeYT {
         if(root.right != null) sum += root.right.data;
 
         return sum == root.data && isSumProperty(root.left) && isSumProperty(root.right);
+    }
+
+//    ALL NODES DISTANCE K IN BINARY TREE.
+    static Map<Node, Node> map = new HashMap<>();
+    public static void parentMap(Node node, Node parent){
+        if (node == null){
+            return;
+        }
+
+        map.put(node, parent);
+        parentMap(node.left, node);
+        parentMap(node.right, node);
+    }
+
+    public static List<Integer> distanceK(Node root, Node target, int k){
+        map.clear();
+        parentMap(root, null);
+
+        Queue<Node> queue = new LinkedList<>();
+        Set<Node> visited = new HashSet<>();
+
+        queue.add(target);
+        visited.add(target);
+
+        int currentLevel = 0;
+        while (!queue.isEmpty()){
+
+            if (currentLevel == k){
+                List<Integer> result = new ArrayList<>();
+                for (Node node: queue){
+                    result.add(node.data);
+                }
+                return result;
+            }
+
+            int size = queue.size();
+            for (int i = 0; i < size; i++){
+                Node current = queue.poll();
+
+                if (current.left != null && !visited.contains(current.left)){
+                    visited.add(current.left);
+                    queue.add(current.left);
+                }
+
+                if (current.right != null && !visited.contains(current.right)){
+                    visited.add(current.right);
+                    queue.add(current.right);
+                }
+
+                Node parent = map.get(current);
+                if(parent != null && !visited.contains(parent)){
+                    visited.add(parent);
+                    queue.add(parent);
+                }
+            }
+            currentLevel++;
+        }
+
+        return new ArrayList<>();
     }
 
     public static void main(String args[]){
@@ -776,5 +838,6 @@ public class BinaryTreeYT {
         System.out.println("Lowest Common Ancestor : "+lowestCommonAncestor(root, 50, 90).data);
         System.out.println("Maximum Width of Binary Tree : "+widthOfBinaryTree(root));
         System.out.println("Childer sum in a binary tree : "+isSumProperty(root));
+        System.out.println("Root equals sum of children : "+distanceK(root, root.left.right, 2));
     }
 }
