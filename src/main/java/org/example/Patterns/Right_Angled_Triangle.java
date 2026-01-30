@@ -292,6 +292,24 @@ public class Right_Angled_Triangle {
         }
     }
 
+//            * * * *
+//            *     *
+//            *     *
+//            * * * *
+
+    public static void hollow_rectangle(int n){
+        for (int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if (i == 0 || i == n-1 || j == 0 || j == n-1){
+                    System.out.print("* ");
+                }else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String args[]){
 //        star(6);
 //        number_pyramid(6);
@@ -303,6 +321,7 @@ public class Right_Angled_Triangle {
 //        Alpha_Hill(5);
 //        Alpha_Triangle(5);
 //        Symm_void_patt(5);
-        SymmButterfly(5);
+//        SymmButterfly(5);
+        hollow_rectangle(4);
     }
 }
