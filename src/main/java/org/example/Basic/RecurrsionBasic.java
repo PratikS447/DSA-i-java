@@ -75,6 +75,14 @@ public class RecurrsionBasic {
         return fibSeries(n-1) + fibSeries(n-2);
     }
 
+    public static void fibSeries2(int n, int first, int second){
+        if (n == 0){
+            return;
+        }
+        System.out.print(first+" ");
+        fibSeries2(n-1, second, first+second);
+    }
+
     public static void main(String args[]){
 //        printnNumber(5, 1);
 //        reverseNumber(5);
@@ -85,8 +93,9 @@ public class RecurrsionBasic {
 //        reveArray(arr, 0);
 //        String str = "madam";
 //        System.out.print(isPalidrom(str, 0, str.length()-1));
-        for (int i = 0; i < 5; i++){
-            System.out.print(fibSeries(i));
-        }
+//        for (int i = 0; i < 5; i++){
+//            System.out.print(fibSeries(i));
+//        }
+        fibSeries2(5, 0, 1);
     }
 }
