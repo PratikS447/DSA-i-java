@@ -349,6 +349,6 @@ public class Right_Angled_Triangle {
 //        Symm_void_patt(5);
 //        SymmButterfly(5);
 //        hollow_rectangle(4);
-        num_pattern(5);
+//        num_pattern(5);
     }
 }
