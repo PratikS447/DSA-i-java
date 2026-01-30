@@ -66,6 +66,15 @@ public class RecurrsionBasic {
         return isPalidrom(str, start+1, end-1);
     }
 
+//    Print Fibonacci Series up to Nth term
+    public static int fibSeries(int n){
+        if (n <= 1){
+            return n;
+        }
+
+        return fibSeries(n-1) + fibSeries(n-2);
+    }
+
     public static void main(String args[]){
 //        printnNumber(5, 1);
 //        reverseNumber(5);
@@ -74,7 +83,10 @@ public class RecurrsionBasic {
 //        System.out.print(sum1(0, 5));
 //        int arr[] = {1,2,3,4,5};
 //        reveArray(arr, 0);
-        String str = "madam";
-        System.out.print(isPalidrom(str, 0, str.length()-1));
+//        String str = "madam";
+//        System.out.print(isPalidrom(str, 0, str.length()-1));
+        for (int i = 0; i < 5; i++){
+            System.out.print(fibSeries(i));
+        }
     }
 }
