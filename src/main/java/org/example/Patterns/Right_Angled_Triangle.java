@@ -156,7 +156,11 @@ public class Right_Angled_Triangle {
             System.out.println();
         }
     }
-
+//            A
+//          A B A
+//        A B C B A
+//      A B C D C B A
+//    A B C D E D C B A
     public static void Alpha_Hill(int n){
 
         for (int i = 0; i < n; i++){
@@ -173,6 +177,12 @@ public class Right_Angled_Triangle {
             System.out.println();
         }
     }
+
+//    F
+//    E F
+//    D E F
+//    C D E F
+//    B C D E F
 
     public static void Alpha_Triangle(int n){
         for (int i = 0; i < n; i++){
@@ -233,6 +243,17 @@ public class Right_Angled_Triangle {
             System.out.println();
         }
     }
+
+//            *                   *
+//            * *               * *
+//            * * *           * * *
+//            * * * *       * * * *
+//            * * * * *   * * * * *
+//            * * * *       * * * *
+//            * * *           * * *
+//            * *               * *
+//            *                   *
+
 
     public static void SymmButterfly(int n){
         for (int i = 0; i < n; i++){
