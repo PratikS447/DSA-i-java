@@ -310,6 +310,32 @@ public class Right_Angled_Triangle {
         }
     }
 
+//            5 5 5 5 5 5 5 5 5
+//            5 4 4 4 4 4 4 4 5
+//            5 4 3 3 3 3 3 4 5
+//            5 4 3 2 2 2 3 4 5
+//            5 4 3 2 1 2 3 4 5
+//            5 4 3 2 2 2 3 4 5
+//            5 4 3 3 3 3 3 4 5
+//            5 4 4 4 4 4 4 4 5
+//            5 5 5 5 5 5 5 5 5
+
+    public static void num_pattern(int n){
+        int size = 2 * n -1;
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; j++){
+                int top = i;
+                int left = j;
+                int bottom = (size-1) - i;
+                int right = (size -1) - j;
+
+                int value = n - Math.min(Math.min(top, bottom), Math.min(left, right));
+                System.out.print(value+" ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String args[]){
 //        star(6);
 //        number_pyramid(6);
@@ -322,6 +348,7 @@ public class Right_Angled_Triangle {
 //        Alpha_Triangle(5);
 //        Symm_void_patt(5);
 //        SymmButterfly(5);
-        hollow_rectangle(4);
+//        hollow_rectangle(4);
+        num_pattern(5);
     }
 }
