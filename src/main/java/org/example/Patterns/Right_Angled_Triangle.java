@@ -158,18 +158,115 @@ public class Right_Angled_Triangle {
     }
 
     public static void Alpha_Hill(int n){
-        for (int i = 0; i < n; i++){
 
-            for (int j = 0; j < n - i; j++){
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n - i -1; j++){
                 System.out.print("  ");
             }
-            int cnt = 0;
-            for (int k = 0; k <= 2*i ; k++){
-                char c = (char) ('A' + cnt);
-                System.out.print(c+" ");
-                cnt++;
+            char ch = 'A';
+            int breaks = (2*i + 1) / 2;
+            for (int k = 0; k < 2*i+1; k++){
+                System.out.print(ch+" ");
+                if( k < breaks) ch++;
+                else ch--;
+            }
+            System.out.println();
+        }
+    }
+
+    public static void Alpha_Triangle(int n){
+        for (int i = 0; i < n; i++){
+            char ch = (char) ('A' + n - i);
+            for (int j = 0; j < i + 1; j ++){
+                System.out.print(ch+" ");
+                ch++;
             }
 
+            System.out.println();
+        }
+    }
+
+//            * * * * * * * * * *
+//            * * * *     * * * *
+//            * * *         * * *
+//            * *             * *
+//            *                 *
+//            *                 *
+//            * *             * *
+//            * * *         * * *
+//            * * * *     * * * *
+//            * * * * * * * * * *
+
+    public static void Symm_void_patt(int n){
+        for (int i = 0; i < n; i ++){
+            for (int j = 0; j < n - i; j++){
+                System.out.print("* ");
+            }
+            for (int k = 0; k < i; k ++){
+                System.out.print("  ");
+            }
+            for (int l = 0; l < i; l++){
+                System.out.print("  ");
+            }
+            for (int m = 0; m < n - i ; m++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j <= i; j++){
+                System.out.print("* ");
+            }
+
+            for (int k = 0; k < n - i -1; k ++){
+                System.out.print("  ");
+            }
+
+            for (int l = 0; l < n - i -1; l++){
+                System.out.print("  ");
+            }
+
+            for (int m = 0; m < i+1; m++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void SymmButterfly(int n){
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j <= i; j++){
+                System.out.print("* ");
+            }
+            for (int k = 0; k < n - i; k++){
+                System.out.print("  ");
+            }
+            for (int l = 0; l < n- i -1; l++){
+                System.out.print("  ");
+            }
+            for (int m = 0; m <= i; m++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n -i -1; j++){
+                System.out.print("* ");
+            }
+
+            for (int k = 0; k <= i+1; k++){
+                System.out.print("  ");
+            }
+
+            for (int l = 0; l <= i ; l++){
+                System.out.print("  ");
+            }
+
+            for (int m = 0; m < n-i -1; m++){
+                System.out.print("* ");
+            }
             System.out.println();
         }
     }
@@ -182,6 +279,9 @@ public class Right_Angled_Triangle {
 //        Crown_Pattern(5);
 //        Letter_Triangle(5);
 //        Alpa_Ramp(5);
-        Alpha_Hill(5);
+//        Alpha_Hill(5);
+//        Alpha_Triangle(5);
+//        Symm_void_patt(5);
+        SymmButterfly(5);
     }
 }

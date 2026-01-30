@@ -706,7 +706,7 @@ public class BinaryTreeYT {
         return sum == root.data && isSumProperty(root.left) && isSumProperty(root.right);
     }
 
-//    ALL NODES DISTANCE K IN BINARY TREE.
+//    ALL NODES DISTANCE K IN BINARY TREE FROM A TARGET.
     static Map<Node, Node> map = new HashMap<>();
     public static void parentMap(Node node, Node parent){
         if (node == null){
