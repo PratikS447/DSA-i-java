@@ -48,23 +48,16 @@ public class Math_Basic {
 
     // ARMSTRONG
     public static boolean isArmstrong(int n){
-        int size = 0;
-        while (n != 0){
-            size++;
-            n = n / 10;
+        int digits = String.valueOf(n).length();
+        int temp = n;
+        int ans = 0;
+        while (temp > 0){
+            int curr = temp % 10;
+            ans += (int)Math.pow(curr, digits);
+            temp = temp/10;
         }
 
-        double ans = 0;
-        while (n != 0){
-            ans += Math.pow(n, size);
-            n = n / 10;
-        }
-
-        if (ans == n){
-            return true;
-        }
-
-        return false;
+        return ans == n;
     }
 
     // DIVISOR
@@ -155,11 +148,11 @@ public class Math_Basic {
 //        System.out.print(reverseDigit(12345));
 //        int ans = gcd(153, 9);
 //        System.out.println(ans);
-//        System.out.print(isArmstrong(153));
+        System.out.print(isArmstrong(153));
 //        System.out.print(divisor(36));
 //        System.out.print(divisor1(36));
 //        System.out.print(isPrime1(19));
 //        System.out.println(leftRotation(1256, 4));
-        System.out.println(rightRotation(1256, 4));
+//        System.out.println(rightRotation(1256, 4));
     }
 }

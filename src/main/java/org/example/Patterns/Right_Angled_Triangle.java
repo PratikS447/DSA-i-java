@@ -336,6 +336,8 @@ public class Right_Angled_Triangle {
         }
     }
 
+
+
     public static void main(String args[]){
 //        star(6);
 //        number_pyramid(6);
@@ -344,7 +346,7 @@ public class Right_Angled_Triangle {
 //        Crown_Pattern(5);
 //        Letter_Triangle(5);
 //        Alpa_Ramp(5);
-//        Alpha_Hill(5);
+        Alpha_Hill(5);
 //        Alpha_Triangle(5);
 //        Symm_void_patt(5);
 //        SymmButterfly(5);
