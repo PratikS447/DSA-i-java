@@ -1,16 +1,46 @@
 package org.example.Sorting;
 
+import java.util.Arrays;
+
 public class MergeSort {
-    public static void divide(int nums[], int s, int e){
-        if(s >= e){
-            return;
+    public static void usingMerge(int arr[], int left, int right){
+        if(left < right){
+            int mid = left +(right - left)/2;
+            usingMerge(arr, left, mid);
+            usingMerge(arr, mid+1, right);
+            merge(arr, left, right, mid);
         }
-        int mid = s+(e-s)/2;
-        divide(nums, s, mid);
-        divide(nums, mid+1, e);
     }
 
-    public static void conquer(int nums[], int st, int mid, int ed){
+    public static void merge(int arr[], int left, int right, int mid){
+        int res[] = new int[right -left +1];
+        int i = left, j = mid+1, k = 0;
+        while(i <= mid && j <= right){
+            if(arr[i] <= arr[j]){
+                res[k] = arr[i];
+                i++;
+            }else{
+                res[k] = arr[j];
+                j++;
+            }
+            k++;
+        }
 
+        while(i <= mid){
+            res[k++] = arr[i++];
+        }
+        while(j <= right){
+            res[k++] = arr[j++];
+        }
+
+        for(int l = 0; l < res.length; l++){
+            arr[left+l] = res[l];
+        }
+
+    }
+    public static void main(String args[]){
+        int arr[] = {7, 6, 8, 5, 4, 9};
+        usingMerge(arr, 0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
 }
