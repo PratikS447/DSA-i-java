@@ -13,7 +13,7 @@ public class Subarray_sum_divisible_by_k {
             rem = sum % k;
 
             if(rem < 0){
-                rem = rem + k;
+                rem = rem + sum;
             }
             if(mp.containsKey(rem)){
                 ans = ans + mp.get(rem);
