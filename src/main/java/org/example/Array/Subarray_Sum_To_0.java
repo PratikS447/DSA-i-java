@@ -10,7 +10,7 @@ public class Subarray_Sum_To_0 {
         for(int i = 0; i < arr.length; i++){
             sum = sum + arr[i];
             if(sum == 0){
-                max = max + 1;
+                max = i + 1;
             }
             else if(mp.containsKey(sum)){
                 max = Math.max(max, i - mp.get(sum));
