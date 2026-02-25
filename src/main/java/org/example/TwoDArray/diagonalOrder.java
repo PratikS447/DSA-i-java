@@ -21,8 +21,18 @@ public class diagonalOrder {
        return ls;
     }
 
-    public static void downward(int mat[][]){
-
+    public static List<Integer> downward(int mat[][]){
+        List<Integer> ls = new ArrayList<>();
+        int n = mat.length; int m = mat[0].length;
+        for (int k = n-1; k >= -(n-1); k--){
+            for (int i = 0; i < n; i++){
+                int j = i + k;
+                if(j < m && j >= 0){
+                    ls.add(mat[i][j]);
+                }
+            }
+        }
+        return ls;
     }
 
     public static void main(String args[]){
@@ -33,6 +43,6 @@ public class diagonalOrder {
                 { 13, 14, 15, 16 },
                 { 17, 18, 19, 20 }
         };
-        System.out.print(upward(arr));
+        System.out.print(downward(arr));
     }
 }
