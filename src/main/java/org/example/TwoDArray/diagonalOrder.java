@@ -1,26 +1,24 @@
 package org.example.TwoDArray;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class diagonalOrder {
-    public static ArrayList<Integer> upward(int mat[][]){
-        ArrayList<Integer> res = new ArrayList<>();
+    public static List<Integer> upward(int mat[][]){
+       int n = mat.length-1;
+       int m = mat[0].length-1;
+       List<Integer> ls = new ArrayList<>();
+       for (int k = 0; k <= m+n+1; k++){
+           int i = Math.min(k, n);
+           int j = k -i;
 
-        int n = mat.length;
-        int m = mat[0].length;
-
-        for (int line = 1; line <= (n +m -1); line++){
-            int startCol = Math.max(0, line -n);
-
-            int count = Math.min(Math.min(line, m - startCol), n);
-
-            for (int j = 0; j < count; j++){
-                int row = Math.min(n, line) -j -1;
-                int col = startCol + j;
-                res.add(mat[row][col]);
-            }
-        }
-        return res;
+           while(i >= 0 && j <= m){
+               ls.add(mat[i][j]);
+               i--;
+               j++;
+           }
+       }
+       return ls;
     }
 
     public static void downward(int mat[][]){
