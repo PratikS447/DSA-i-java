@@ -16,6 +16,7 @@ public class Two_sum {
         }
         return new int[]{-1, -1};
     }
+
     public static int[] method_2(int [] arr, int target){
         Map<Integer, Integer> hm = new HashMap<>();
         for (int i=0; i<arr.length; i++){
@@ -28,6 +29,7 @@ public class Two_sum {
         }
         return new int[]{-1, -1};
     }
+
     public static int[] max_min(int [] arr){
         int min = arr[0]; int max = arr[0];
         for (int i=0; i<arr.length; i++){
@@ -38,6 +40,7 @@ public class Two_sum {
         }
         return new int[]{min, max};
     }
+
     public static boolean Array_sorted(int arr[]){
         if(arr.length == 0 || arr.length == 1){
             return true;
@@ -49,6 +52,7 @@ public class Two_sum {
         }
         return true;
     }
+
 
     public static void main(String args[]){
         int [] arr1 = {1, 3, 2, 4};
