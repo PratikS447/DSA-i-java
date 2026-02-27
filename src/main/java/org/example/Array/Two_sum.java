@@ -17,19 +17,6 @@ public class Two_sum {
         return new int[]{-1, -1};
     }
 
-    public static int[] method_2(int [] arr, int target){
-        Map<Integer, Integer> hm = new HashMap<>();
-        for (int i=0; i<arr.length; i++){
-            int complement = target - arr[i];
-            if(hm.containsKey(complement)){
-                return new int[]{hm.get(complement), i};
-            }else{
-                hm.put(arr[i], i);
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
     public static int[] max_min(int [] arr){
         int min = arr[0]; int max = arr[0];
         for (int i=0; i<arr.length; i++){

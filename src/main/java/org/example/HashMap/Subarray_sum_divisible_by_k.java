@@ -1,4 +1,4 @@
-package org.example.Array;
+package org.example.HashMap;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -13,7 +13,7 @@ public class Subarray_sum_divisible_by_k {
             rem = sum % k;
 
             if(rem < 0){
-                rem = rem + sum;
+                rem = rem + k;
             }
             if(mp.containsKey(rem)){
                 ans = ans + mp.get(rem);
