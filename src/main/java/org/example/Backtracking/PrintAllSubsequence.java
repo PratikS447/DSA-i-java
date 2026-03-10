@@ -24,6 +24,6 @@ public class PrintAllSubsequence {
     }
 
     public static void main(String args[]){
-        subSequence("abcd");
+        subSequence("abc");
     }
 }

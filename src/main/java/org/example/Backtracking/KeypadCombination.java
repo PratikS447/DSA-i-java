@@ -23,7 +23,7 @@ public class KeypadCombination {
         String value = mp.get(key);
 
         for(int j = 0; j < value.length(); j++){
-            // will choose first branch. Thus, to choose multiple branches we must use for loop.
+            // will choose first branch. Hence, to choose multiple branches we must use for loop.
             ans.append(value.charAt(j));
             helper(ques, ans, mp, i+1);
             ans.deleteCharAt(ans.length() -1);
