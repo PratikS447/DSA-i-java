@@ -39,14 +39,25 @@ public class CurdLL {
     }
 
     public void deleteLast(){
-        Node first = head;
-        Node second = head.next;
-
-        while (second.next != null){
-            first = first.next;
-            second = second.next;
+        // Case 1: List is empty
+        if (head == null) {
+            System.out.println("List is already empty.");
+            return;
         }
-        first.next = null;
+
+        // Case 2: List has only one node
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        // Case 3: List has 2+ nodes
+        Node curr = head;
+        while (curr.next.next != null) { // Look two steps ahead
+            curr = curr.next;
+        }
+        // Now curr is the second-to-last node
+        curr.next = null;
     }
 
     public void print(){
@@ -63,6 +74,22 @@ public class CurdLL {
         System.out.println();
     }
 
+    // Reverse the Linked List
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node nextNode = null;
+
+        while (curr != null){
+            nextNode = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = nextNode;
+        }
+        head = prev;
+    }
+
     public static void main(String args[]){
         CurdLL list = new CurdLL();
         list.addFirst(1);
@@ -70,7 +97,8 @@ public class CurdLL {
         list.addLast(3);
         list.addFirst(0);
         list.print();
-        list.deleteLast();
+//        list.deleteLast();
+        list.reverse();
         list.print();
     }
 }
