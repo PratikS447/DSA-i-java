@@ -2,85 +2,98 @@ package org.example.LinkedList;
 
 public class CurdLL {
     Node head;
-    class Node{
-        int data;
-        Node next;
-        Node(int data){
-            this.data = data;
-            this.next = null;
-        }
-    }
 
-    public void addFirst(int data){
-       Node newNode = new Node(data);
-       if(newNode == null){
-           head = newNode;
-           return;
-       }
-       newNode.next = head;
-       head = newNode;
-    }
-
-    public void addLast(int data){
+    // Add at beginning
+    public void addFirst(int data) {
         Node newNode = new Node(data);
-        if(newNode == null){
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Add at end
+    public void addLast(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
             head = newNode;
             return;
         }
+
         Node curr = head;
-        while (curr.next != null){
+        while (curr.next != null) {
             curr = curr.next;
         }
         curr.next = newNode;
     }
 
-    public void deleteFirst(){
+    // At specific position
+    public void specificPosition(Node node, int pos){
+        if(pos == 0){
+            node.next = head;
+            head = node;
+            return;
+        }
+        Node curr = head;
+        int cnt = 1;
+        while(curr != null && cnt < pos -1){
+            cnt++;
+            curr = curr.next;
+        }
+
+        node.next = curr.next;
+        curr.next = node;
+    }
+
+    // Delete first node
+    public void deleteFirst() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
         head = head.next;
     }
 
-    public void deleteLast(){
-        // Case 1: List is empty
+    // Delete last node
+    public void deleteLast() {
         if (head == null) {
-            System.out.println("List is already empty.");
+            System.out.println("List is empty");
             return;
         }
 
-        // Case 2: List has only one node
         if (head.next == null) {
             head = null;
             return;
         }
 
-        // Case 3: List has 2+ nodes
         Node curr = head;
-        while (curr.next.next != null) { // Look two steps ahead
+        while (curr.next.next != null) {
             curr = curr.next;
         }
-        // Now curr is the second-to-last node
         curr.next = null;
     }
 
-    public void print(){
-        if(head == null){
+    // Print list
+    public void print() {
+        if (head == null) {
             System.out.println("List is empty");
             return;
         }
+
         Node temp = head;
-        while (temp != null){
-            System.out.print(temp.data+" -> ");
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
             temp = temp.next;
         }
-        System.out.print("null");
-        System.out.println();
+        System.out.println("null");
     }
 
-    // Reverse the Linked List
-    public void reverse(){
+    // Reverse list
+    public void reverse() {
         Node prev = null;
         Node curr = head;
-        Node nextNode = null;
+        Node nextNode;
 
-        while (curr != null){
+        while (curr != null) {
             nextNode = curr.next;
             curr.next = prev;
 
@@ -90,15 +103,46 @@ public class CurdLL {
         head = prev;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         CurdLL list = new CurdLL();
+
         list.addFirst(1);
         list.addLast(2);
         list.addLast(3);
         list.addFirst(0);
+
+        System.out.println("Original List:");
         list.print();
-//        list.deleteLast();
+
+        list.deleteFirst();
+        System.out.println("After deleteFirst:");
+        list.print();
+
+        list.deleteLast();
+        System.out.println("After deleteLast:");
+        list.print();
+
         list.reverse();
+        System.out.println("After reverse:");
         list.print();
+
+        System.out.println("Merge the two sorted Linked List");
+        CurdLL curr = new CurdLL();
+        curr.addLast(1);
+        curr.addLast(2);
+        curr.addLast(3);
+        curr.addLast(4);
+        curr.addLast(5);
+
+        CurdLL curr2 = new CurdLL();
+        curr2.addLast(6);
+        curr2.addLast(7);
+        curr2.addLast(8);
+        curr2.addLast(9);
+        curr2.addLast(10);
+
+        Merge_Linked_List mergeLinkedList = new Merge_Linked_List();
+        Node merge_ll = mergeLinkedList.merge_ll(curr.head, curr2.head);
+        mergeLinkedList.print_Merge(merge_ll);
     }
 }
