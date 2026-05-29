@@ -1,4 +1,4 @@
-package org.example.OOP.Inheritance;
+package org.example.LLD.Inheritance;
 
 // Base class (Parent class)
 class Animal {

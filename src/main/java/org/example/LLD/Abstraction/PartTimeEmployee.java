@@ -1,4 +1,4 @@
-package org.example.OOP.Abstraction;
+package org.example.LLD.Abstraction;
 
 // Part-time employee implementation
 class PartTimeEmployee extends Employee implements Payable {

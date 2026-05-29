@@ -1,4 +1,4 @@
-package org.example.OOP;
+package org.example.LLD.complex_number;
 
 public class ComplexNumber {
     double real;

@@ -1,4 +1,4 @@
-package org.example.OOP.Polymorphism;
+package org.example.LLD.Polymorphism;
 
 // Derived class - Rectangle
 class Rectangle extends Shape {

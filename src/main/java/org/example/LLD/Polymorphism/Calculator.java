@@ -1,4 +1,4 @@
-package org.example.OOP.Polymorphism;
+package org.example.LLD.Polymorphism;
 
 // Class demonstrating Compile-time Polymorphism (Method Overloading)
 class Calculator {

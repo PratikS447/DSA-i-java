@@ -1,4 +1,4 @@
-package org.example.OOP.Polymorphism;
+package org.example.LLD.Polymorphism;
 
 public class Polymorphism {
     public static void main(String[] args) {

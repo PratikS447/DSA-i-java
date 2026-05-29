@@ -1,4 +1,4 @@
-package org.example.OOP.Polymorphism;
+package org.example.LLD.Polymorphism;
 
 // Derived class - Triangle
 class Triangle extends Shape {

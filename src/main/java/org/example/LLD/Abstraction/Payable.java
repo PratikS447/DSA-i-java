@@ -1,4 +1,4 @@
-package org.example.OOP.Abstraction;
+package org.example.LLD.Abstraction;
 
 // Interface for pay calculation
 interface Payable {

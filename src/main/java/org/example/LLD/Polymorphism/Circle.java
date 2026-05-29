@@ -1,4 +1,4 @@
-package org.example.OOP.Polymorphism;
+package org.example.LLD.Polymorphism;
 
 // Derived class - Circle
 class Circle extends Shape {

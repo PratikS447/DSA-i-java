@@ -1,4 +1,4 @@
-package org.example.OOP.Abstraction;
+package org.example.LLD.Abstraction;
 
 // Abstract class - cannot be instantiated directly
 abstract class Employee {

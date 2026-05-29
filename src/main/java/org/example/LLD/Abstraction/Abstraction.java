@@ -1,4 +1,4 @@
-package org.example.OOP.Abstraction;
+package org.example.LLD.Abstraction;
 
 public class Abstraction {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package org.example.OOP.Encapsulation;
+package org.example.LLD.Encapsulation;
 
 public class Encapsulation {
 

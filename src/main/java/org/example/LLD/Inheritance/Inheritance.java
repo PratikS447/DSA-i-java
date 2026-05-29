@@ -1,4 +1,4 @@
-package org.example.OOP.Inheritance;
+package org.example.LLD.Inheritance;
 
 // Main class to demonstrate inheritance
 public class Inheritance {

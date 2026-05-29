@@ -1,4 +1,4 @@
-package org.example.OOP.Inheritance;
+package org.example.LLD.Inheritance;
 
 // Another derived class - Hierarchical Inheritance
 class Cat extends Animal {

@@ -1,4 +1,4 @@
-package org.example.OOP.Inheritance;
+package org.example.LLD.Inheritance;
 
 // Derived class (Child class) - Single Inheritance
 class Dog extends Animal {
