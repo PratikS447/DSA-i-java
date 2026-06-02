@@ -8,17 +8,16 @@ public class Next_Greater {
         int result[] = new int[arr.length];
         Stack<Integer> st = new Stack<>();
         Arrays.fill(result, -1);
-        for(int i=n-1; i>0; i--){
+        for(int i = 0; i < arr.length; i++){
             while (!st.isEmpty() && arr[i] > arr[st.peek()]){
-                int idx = st.pop();
-                result[idx] = arr[i];
+                result[st.pop()] = arr[i];
             }
-            st.push(arr[i]);
+            st.push(i);
         }
         return result;
     }
     public static void main(String args[]){
-        int arr[] = {1,2,3,4,5,6};
+        int arr[] = {1, 3, 2, 4};
         System.out.println(Arrays.toString(next_greater(arr)));
     }
 }
