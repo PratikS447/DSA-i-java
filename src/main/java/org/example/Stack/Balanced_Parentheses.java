@@ -12,11 +12,9 @@ public class Balanced_Parentheses {
                 stack.push(s);
             } else if (stack.isEmpty()) {
                 return false;
-            } else if (
-                    ((stack.peek() == '(') && (s == ')')) ||
+            } else if (  ((stack.peek() == '(') && (s == ')')) ||
                     ((stack.peek() == '[') && (s == ']')) ||
-                            ((stack.peek() == '{') && (s == '}'))
-            ) {
+                            ((stack.peek() == '{') && (s == '}'))  ) {
                 stack.pop();
             }
             else {
