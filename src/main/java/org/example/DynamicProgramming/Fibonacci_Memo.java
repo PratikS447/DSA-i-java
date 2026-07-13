@@ -19,7 +19,4 @@ public class Fibonacci_Memo {
         return memo[n];
     }
 
-    public static void main(String args[]){
-        System.out.println(rec(7));
-    }
 }
