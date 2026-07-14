@@ -1,7 +1,11 @@
 package org.example.DynamicProgramming;
 
 public class Tabulation_fib {
-    public static int fib_series(int n){
+     public int fib_series(int n){
+         if(n == 0){
+             return 0;
+         }
+
         int dp[] = new int[n+1];
         dp[0] = 0;
         dp[1] = 1;
@@ -11,7 +15,4 @@ public class Tabulation_fib {
         return dp[n];
     }
 
-    public static void main(String args[]){
-        System.out.println(fib_series(5));
-    }
 }
