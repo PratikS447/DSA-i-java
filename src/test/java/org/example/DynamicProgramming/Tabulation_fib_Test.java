@@ -18,4 +18,8 @@ public class Tabulation_fib_Test {
         assertEquals(1, fib.fib_series(1));
     }
 
+    @Test
+    public void testFibFive(){
+        assertEquals(5, fib.fib_series(5));
+    }
 }
