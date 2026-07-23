@@ -1,4 +1,4 @@
-package org.example.Stack;
+package org.example.Stack_and_Queue;
 
 public class Valid_parenthesis {
 //    public static boolean

@@ -1,4 +1,4 @@
-package org.example.Stack;
+package org.example.Stack_and_Queue;
 
 import java.util.Arrays;
 import java.util.Stack;

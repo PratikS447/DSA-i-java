@@ -1,6 +1,4 @@
-package org.example.Stack;
-
-import java.util.Map;
+package org.example.Stack_and_Queue;
 
 public class MyStack {
     int top;
