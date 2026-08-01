@@ -1,34 +1,34 @@
-package org.example.Recursion;
+package org.example.Backtracking.Recursion;
 
 import java.util.Stack;
 
-public class ReverseStack {
-    public static void myReverse(Stack<Integer> st){
+public class Sort_A_Stack {
+    public static void myStack(Stack<Integer> st){
         if(st.isEmpty()){
             return;
         }
         int temp = st.pop();
-        myReverse(st);
-        insertionSort(st, temp);
+        myStack(st);
+        insertSort(st, temp);
     }
 
-    public static void insertionSort(Stack<Integer> st, int temp){
-        if(st.isEmpty()){
+    public static void insertSort(Stack<Integer> st, int temp){
+        if(st.isEmpty() || st.peek() < temp){
             st.push(temp);
             return;
         }
         int ele = st.pop();
-        insertionSort(st, temp);
+        insertSort(st, temp);
         st.push(ele);
     }
+
     public static void main(String args[]){
         Stack<Integer> st = new Stack<>();
-        st.push(1);
-        st.push(2);
         st.push(3);
+        st.push(1);
         st.push(4);
-
-        myReverse(st);
+        st.push(2);
+        myStack(st);
         System.out.println(st);
     }
 }

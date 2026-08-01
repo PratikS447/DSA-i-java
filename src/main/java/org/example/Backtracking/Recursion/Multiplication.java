@@ -1,4 +1,4 @@
-package org.example.Recursion;
+package org.example.Backtracking.Recursion;
 
 import java.util.Scanner;
 

@@ -1,9 +1,5 @@
-package org.example.Tree;
+package org.example.Tree.Binary_Tree;
 
-
-import com.sun.source.tree.ArrayAccessTree;
-import com.sun.source.tree.Tree;
-import org.w3c.dom.ls.LSInput;
 
 import java.util.*;
 

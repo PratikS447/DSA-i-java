@@ -1,4 +1,4 @@
-package org.example.Recursion;
+package org.example.Backtracking.Recursion;
 
 public class Power {
     public static int myPow(double x, int n){

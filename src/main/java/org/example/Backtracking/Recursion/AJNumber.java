@@ -1,4 +1,4 @@
-package org.example.Recursion;
+package org.example.Backtracking.Recursion;
 
 public class AJNumber {
     public static void solve(StringBuilder str, int n){

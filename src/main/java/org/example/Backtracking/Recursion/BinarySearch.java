@@ -1,4 +1,4 @@
-package org.example.Recursion;
+package org.example.Backtracking.Recursion;
 
 public class BinarySearch {
     public static int mySearch(int arr[], int start, int end,int target){
