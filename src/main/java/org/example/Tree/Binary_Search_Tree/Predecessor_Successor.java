@@ -2,17 +2,6 @@ package org.example.Tree.Binary_Search_Tree;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class Node{
-    int data;
-    Node left;
-    Node right;
-    Node(int data){
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-}
-
 public class Predecessor_Successor {
     public static ArrayList<Node> findPreSuc(Node root, int val){
         Node prec = null;
