@@ -38,7 +38,7 @@ public class Delete_A_Node_BST_Test {
         assertEquals(List.of(5, 8), inorderList(root));
     }
 
-
+    @Test
     void testDeleteNodeWithOnlyLeftChild(){
         Node root = node(5, node(3, node(2, null, null), null), null);
         // Act
