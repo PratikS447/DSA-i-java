@@ -1,4 +1,4 @@
-package org.example.Greedy.graph_permutation;
+package org.example.Graph.graph_permutation;
 
 import org.example.Graph.graph_permutation.Min_Swaps;
 import org.junit.jupiter.api.Test;
