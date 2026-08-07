@@ -23,5 +23,7 @@ public class Path_To_A_Given_Node {
 
         helper(root.left, target, ls, ans);
         helper(root.right, target, ls, ans);
+
+        ls.remove(ls.size() -1);
     }
 }
