@@ -19,6 +19,6 @@ public class Symmetric_Tree {
             return false;
         }
 
-        return helper(root_left.left, root_right.right) || helper(root_left.right, root_right.left);
+        return helper(root_left.left, root_right.right) && helper(root_left.right, root_right.left);
     }
 }
