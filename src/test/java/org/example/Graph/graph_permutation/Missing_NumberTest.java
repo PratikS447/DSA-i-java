@@ -1,6 +1,5 @@
-package org.example.Tree.Binary_Tree;
+package org.example.Graph.graph_permutation;
 
-import org.example.Graph.graph_permutation.Missing_Number;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
