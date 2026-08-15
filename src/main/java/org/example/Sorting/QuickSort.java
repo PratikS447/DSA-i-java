@@ -32,9 +32,4 @@ public class QuickSort {
         arr[j] = temp;
     }
 
-    public static void main(String args[]){
-        int arr[] = {4, 1, 3, 9, 7};
-        quiSort(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(arr));
-    }
 }
