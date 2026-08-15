@@ -14,10 +14,4 @@ public class BubbleSort {
             }
         }
     }
-
-    public static void main(String args[]){
-        int arr[] = {1, 4, 3, 7, 2};
-        sort(arr);
-        System.out.print(Arrays.toString(arr));
-    }
 }
