@@ -16,10 +16,4 @@ public class SelectionSort {
             arr[i] = temp;
         }
     }
-
-    public static void main(String args[]){
-        int arr[] = {4, 1, 3, 9, 7};
-        selSort(arr);
-        System.out.println(Arrays.toString(arr));
-    }
 }
