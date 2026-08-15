@@ -38,9 +38,4 @@ public class MergeSort {
         }
 
     }
-    public static void main(String args[]){
-        int arr[] = {7, 6, 8, 5, 4, 9};
-        usingMerge(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(arr));
-    }
 }
