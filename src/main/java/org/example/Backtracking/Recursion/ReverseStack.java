@@ -9,16 +9,16 @@ public class ReverseStack {
         }
         int temp = st.pop();
         myReverse(st);
-        insertionSort(st, temp);
+        InsertionSort(st, temp);
     }
 
-    public static void insertionSort(Stack<Integer> st, int temp){
+    public static void InsertionSort(Stack<Integer> st, int temp){
         if(st.isEmpty()){
             st.push(temp);
             return;
         }
         int ele = st.pop();
-        insertionSort(st, temp);
+        InsertionSort(st, temp);
         st.push(ele);
     }
     public static void main(String args[]){
