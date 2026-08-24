@@ -1,4 +1,4 @@
-package org.example.Backtracking;
+package org.example.Backtracking_and_recusion.backtracking;
 
 public class StairCase {
     public static void printStair(String str, int n){

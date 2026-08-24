@@ -1,4 +1,4 @@
-package org.example.Backtracking;
+package org.example.Backtracking_and_recusion.backtracking;
 
 public class WordSearch {
     public static void main (String[] args) throws java.lang.Exception

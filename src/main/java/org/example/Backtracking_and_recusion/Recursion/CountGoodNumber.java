@@ -1,4 +1,4 @@
-package org.example.Backtracking.Recursion;
+package org.example.Backtracking_and_recusion.Recursion;
 
 public class CountGoodNumber {
     public static long helper(long base, long expo, long mod){

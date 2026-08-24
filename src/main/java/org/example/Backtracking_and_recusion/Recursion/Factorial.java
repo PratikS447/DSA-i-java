@@ -1,4 +1,4 @@
-package org.example.Backtracking.Recursion;
+package org.example.Backtracking_and_recusion.Recursion;
 
 public class Factorial {
     public static int fact(int n){

@@ -1,4 +1,4 @@
-package org.example.Backtracking.Recursion;
+package org.example.Backtracking_and_recusion.Recursion;
 
 public class FibNumber {
     public static int fibnocii(int n){

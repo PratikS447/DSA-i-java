@@ -1,4 +1,4 @@
-package org.example.Backtracking.Recursion;
+package org.example.Backtracking_and_recusion.Recursion;
 
 public class Nth_Even_Fib_Series {
     public static int even_Fib(int n){

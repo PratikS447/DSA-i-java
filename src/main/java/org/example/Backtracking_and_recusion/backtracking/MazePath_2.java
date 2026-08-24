@@ -1,4 +1,4 @@
-package org.example.Backtracking;
+package org.example.Backtracking_and_recusion.backtracking;
 
 import java.util.Scanner;
 
