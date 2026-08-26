@@ -1,6 +1,5 @@
-package org.example.Stack_ans_Queue;
+package org.example.Stack_and_Queue;
 
-import org.example.Stack_and_Queue.Design_queue_using_stack;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

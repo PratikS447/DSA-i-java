@@ -1,6 +1,5 @@
-package org.example.Stack_ans_Queue;
+package org.example.Stack_and_Queue;
 
-import org.example.Stack_and_Queue.Reverse_Polish_Notation;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

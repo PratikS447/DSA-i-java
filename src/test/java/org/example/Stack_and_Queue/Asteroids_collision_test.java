@@ -1,6 +1,5 @@
-package org.example.Stack_ans_Queue;
+package org.example.Stack_and_Queue;
 
-import org.example.Stack_and_Queue.Asteroids_collision;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
