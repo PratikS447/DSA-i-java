@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RottenOrangesTest {
+public class RottenOrangesTest {
 
     @Test
     void classicExampleTakesFourMinutes() {
