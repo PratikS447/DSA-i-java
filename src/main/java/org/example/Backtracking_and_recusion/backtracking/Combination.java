@@ -23,7 +23,4 @@ public class Combination {
         }
     }
 
-    public static void main(String args[]){
-        System.out.println(nCr(4, 4));
-    }
 }
