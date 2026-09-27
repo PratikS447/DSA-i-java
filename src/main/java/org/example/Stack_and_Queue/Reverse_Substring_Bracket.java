@@ -31,8 +31,4 @@ public class Reverse_Substring_Bracket {
 
         return res.reverse().toString();
     }
-
-    public static void main(String args[]){
-        System.out.println(reverse_substring("(accio(job))", 12));
-    }
 }

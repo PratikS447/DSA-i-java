@@ -1,4 +1,4 @@
-package org.example.Basic;
+package org.example.Company_Wise;
 
 public class Second_Largest {
 }

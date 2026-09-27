@@ -17,12 +17,11 @@ public class Balanced_Expression {
                  st.peek() == '[' && str.charAt(i) == ']' ||
                  st.peek() == '{' && str.charAt(i) == '}' ){
                     st.pop();
+                }else {
+                    return false;
                 }
             }
         }
         return st.isEmpty();
-    }
-    public static void main(String args[]){
-        System.out.println(is_balanced("[(a+b)+{(c+d)*(e/f)]}"));
     }
 }
