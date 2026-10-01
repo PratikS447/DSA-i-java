@@ -34,9 +34,4 @@ public class Array_Adding {
         }
         return result;
     }
-    public static void main(String args[]){
-        int arr1[] = {9, 9};
-        int arr2[] = {1};
-        System.out.println(Arrays.toString(arrayAdding(arr1, arr2)));
-    }
 }
