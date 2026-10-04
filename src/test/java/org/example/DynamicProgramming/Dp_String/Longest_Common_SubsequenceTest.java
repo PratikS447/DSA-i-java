@@ -1,5 +1,6 @@
-package org.example.DynamicProgramming.Dp_1_Dimensional;
+package org.example.DynamicProgramming.Dp_String;
 
+import org.example.DynamicProgramming.DP_String.Longest_Common_Subsequence;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Named;
 import org.junit.jupiter.api.Test;
