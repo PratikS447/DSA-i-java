@@ -41,7 +41,7 @@ class Longest_Common_SubsequenceTest {
     // ---------- Known input/output pairs (from CSV) ----------
 
     @ParameterizedTest(name = "{3}: LCS(\"{0}\", \"{1}\") = {2}")
-    @CsvFileSource(resources = "/lcs_cases.csv", numLinesToSkip = 1, encoding = "UTF-8")
+    @CsvFileSource(resources = "/DynamicProgramming/DP_On_String/lcs_cases.csv", numLinesToSkip = 1, encoding = "UTF-8")
     @DisplayName("Known cases loaded from lcs_cases.csv (both implementations)")
     void knownCasesFromCsv(String s1, String s2, int expected, String description) {
         assertEquals(expected, new Longest_Common_Subsequence().memozation_method(s1, s2));
