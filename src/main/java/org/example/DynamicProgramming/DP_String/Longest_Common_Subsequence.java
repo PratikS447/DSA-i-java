@@ -2,7 +2,7 @@ package org.example.DynamicProgramming.DP_String;
 
 import java.util.Arrays;
 
-class Longest_Common_Subsequence {
+public class Longest_Common_Subsequence {
     public int memozation_method(String s1, String s2) {
         // code here
         int n = s1.length();
