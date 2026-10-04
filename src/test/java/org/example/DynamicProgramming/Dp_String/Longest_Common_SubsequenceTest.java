@@ -1,11 +1,15 @@
 package org.example.DynamicProgramming.Dp_String;
 
+// NOTE: this package is "Dp_String" but the import below uses "DP_String" (different casing).
+// It works on case-insensitive filesystems (default macOS) but breaks on Linux/CI.
+// Use the same casing in both places. Also, the class under test must be public
+// because the test lives in a different package than the class.
 import org.example.DynamicProgramming.DP_String.Longest_Common_Subsequence;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Named;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Random;
@@ -16,15 +20,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Tests both LCS implementations (memoization + tabulation) with the same cases,
- * so any behavioural difference between the two shows up immediately.
+ * Tests both LCS implementations (memoization + tabulation).
+ * Known input/output pairs live in src/test/resources/lcs_cases.csv; logic-based tests stay in Java.
  */
 class Longest_Common_SubsequenceTest {
 
     private static final String MEMO = "memoization";
     private static final String TABULATION = "tabulation";
 
-    // ---------- Providers ----------
+    // ---------- Provider ----------
 
     /** The two implementations under test. A new instance per call keeps tests independent. */
     static Stream<Named<BiFunction<String, String, Integer>>> implementations() {
@@ -34,39 +38,18 @@ class Longest_Common_SubsequenceTest {
         );
     }
 
-    /** Cross product: every (s1, s2, expected) case is run against every implementation. */
-    static Stream<Arguments> knownCases() {
-        Object[][] data = {
-                {"abcde", "ace", 3},
-                {"abcdgh", "aedfhr", 3},
-                {"AGGTAB", "GXTXAYB", 4},
-                {"abcbdab", "bdcaba", 4},
-                {"abc", "cba", 1},
-                {"aaaa", "aa", 2},
-                {"abc", "abc", 3},
-                {"abc", "def", 0},
-                {"a", "a", 1},
-                {"a", "b", 0},
-                {"axbycz", "abc", 3},      // second is a subsequence of first
-                {"abc", "axbycz", 3},      // first is a subsequence of second
-                {"abc", "ABC", 0},         // case-sensitive
-                {"1!2@", "!@", 2},         // non-letter characters
-                {"a b-c", "a-b c", 3}      // spaces and punctuation
-        };
-        return implementations().flatMap(impl ->
-                Stream.of(data).map(row -> Arguments.of(impl, row[0], row[1], row[2])));
-    }
+    // ---------- Known input/output pairs (from CSV) ----------
 
-    // ---------- Known input/output pairs ----------
-
-    @ParameterizedTest(name = "[{0}] LCS(\"{1}\", \"{2}\") = {3}")
-    @MethodSource("knownCases")
-    @DisplayName("Known input/output pairs")
-    void knownCases(BiFunction<String, String, Integer> lcs, String s1, String s2, int expected) {
-        assertEquals(expected, lcs.apply(s1, s2));
+    @ParameterizedTest(name = "{3}: LCS(\"{0}\", \"{1}\") = {2}")
+    @CsvFileSource(resources = "/lcs_cases.csv", numLinesToSkip = 1, encoding = "UTF-8")
+    @DisplayName("Known cases loaded from lcs_cases.csv (both implementations)")
+    void knownCasesFromCsv(String s1, String s2, int expected, String description) {
+        assertEquals(expected, new Longest_Common_Subsequence().memozation_method(s1, s2));
+        assertEquals(expected, new Longest_Common_Subsequence().lcs(s1, s2));
     }
 
     // ---------- Edge cases ----------
+    // Empty strings stay in Java: an empty CSV cell is read as null, which would need extra handling.
 
     @ParameterizedTest(name = "[{0}]")
     @MethodSource("implementations")

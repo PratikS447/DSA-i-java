@@ -3,7 +3,9 @@ package org.example.Stack_and_Queue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+//import static org.junit.Assert.assertArrayEquals;
 
 public class Max_Sliding_Window_Test {
     private Max_Sliding_Window max_sliding_window;

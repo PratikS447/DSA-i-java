@@ -1,0 +1,16 @@
+
+0 1 3 5 6 8 12 17,true,LeetCode example 1
+0 1,true,single valid first jump
+0 1 2,true,jumps 1 then 1
+0 1 3,true,jumps 1 then 2
+0 1 3 6 10 15 21 28,true,triangular numbers
+0 1 3 6 10 15 16 21,true,needs jump of 6 to skip stone 16
+0 1 2 3 4 5 6 7 8 9,true,all jumps of 1
+0 1 2 3 4 8 9 11,false,LeetCode example 2 gap too large
+0 2,false,first jump must be 1
+0 5 6,false,first jump must be 1
+0 1 4,false,would need jump of 3 after jump of 1
+0 1 3 6 7,false,last jump was 3 so 1 is not allowed
+0 1 2 3 100,false,huge final gap
+0 1 3 6 10 13 15 16 19 21 25,false,unreachable despite many stones
+0 1 2147483647,false,integer overflow guard

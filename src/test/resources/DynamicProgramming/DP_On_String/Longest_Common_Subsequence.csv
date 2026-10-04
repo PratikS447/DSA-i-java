@@ -1,0 +1,16 @@
+s1,s2,expected,description
+abcde,ace,3,basic example
+abcdgh,aedfhr,3,interleaved matches
+AGGTAB,GXTXAYB,4,classic textbook case
+abcbdab,bdcaba,4,multiple valid subsequences
+abc,cba,1,reversed string
+aaaa,aa,2,repeated characters
+abc,abc,3,identical strings
+abc,def,0,no common characters
+a,a,1,single matching char
+a,b,0,single different char
+axbycz,abc,3,second is subsequence of first
+abc,axbycz,3,first is subsequence of second
+abc,ABC,0,case sensitive
+1!2@,!@,2,non-letter characters
+a b-c,a-b c,3,spaces and punctuation

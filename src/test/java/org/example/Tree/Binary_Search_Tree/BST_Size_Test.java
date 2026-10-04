@@ -2,7 +2,8 @@ package org.example.Tree.Binary_Search_Tree;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BST_Size_Test {
     private Node node(int val, Node left, Node right){

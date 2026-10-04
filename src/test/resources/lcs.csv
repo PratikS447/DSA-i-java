@@ -1,6 +1,0 @@
-s1,s2,expected,description
-abcde,ace,3,basic example
-AGGTAB,GXTXAYB,4,classic
-abc,def,0,no common chars
-abc,,0,second empty
-,,0,both empty
