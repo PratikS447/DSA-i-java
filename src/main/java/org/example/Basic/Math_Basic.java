@@ -142,17 +142,4 @@ public class Math_Basic {
         }
         return n;
     }
-
-    public static void main(String args[]){
-//        System.out.print(countDigit(12345));
-//        System.out.print(reverseDigit(12345));
-//        int ans = gcd(153, 9);
-//        System.out.println(ans);
-        System.out.print(isArmstrong(153));
-//        System.out.print(divisor(36));
-//        System.out.print(divisor1(36));
-//        System.out.print(isPrime1(19));
-//        System.out.println(leftRotation(1256, 4));
-//        System.out.println(rightRotation(1256, 4));
-    }
 }
