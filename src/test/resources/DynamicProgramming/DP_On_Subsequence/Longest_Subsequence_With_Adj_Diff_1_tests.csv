@@ -1,0 +1,15 @@
+test_name,input_array,expected_length
+emptyArray,,0
+singleElement,7,1
+allEqualElements,5 5 5 5,1
+strictlyIncreasingByOne,1 2 3 4 5,5
+strictlyDecreasingByOne,5 4 3 2 1,5
+zigzag,1 2 1 2 1 2,6
+mountainShape,1 2 3 2 1,5
+noValidPair,1 3 5 7,1
+mixedWithGaps,10 9 4 5 4 8 6,3
+mustSkipNoiseInBetween,1 5 2 6 3,3
+duplicatesMustBeSkipped,3 2 2 1,3
+negativeNumbers,-1 0 1 0 -1,5
+differenceOfTwoIsNotAllowed,2 4 6 8,1
+greedyTakeFails,3 2 4 5 6,4
